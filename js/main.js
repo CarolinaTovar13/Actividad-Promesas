@@ -240,6 +240,8 @@ let producto = [
     }
     }
     ];
+    
+    // let productoArreglo = JSON.parse(producto);
     let foto =document.getElementById("foto");
     let titulo = document.getElementById("titulo");
     let subtitulo = document.getElementById("subtitulo");
@@ -264,13 +266,59 @@ let producto = [
     } // getProducto
 
     getProducto()
-                .then((prod)=> console.log(prod))
-                .catch ((err) => console.log(err.message));
+                .then((a)=> console.log(a))
+                .catch ((b) => console.log(b));
 
+         //////////////////////////////////
+         
+         console.log(producto[1]. category);
+         console.log(typeof producto);
+
+         ///Para que el JSON funcione en JS tiene que ser tipo objeto!!
+
+         /////////////////////////////////////////////////////////////
+         
+         // el santo grial!!! aqui pude porfin tomar un valor en específico 
+
+
+
+
+         //////////////////////////////////////////////////////
+
+
+
+        //  let row =   `<img src="${producto[0].image}" class="card-img-top" id="foto" alt="fotoProducto">
+        //                     <h3 class="card-title" id="titulo">${producto[0].title}</h>
+        //                     <h5 class="cardcategoria" id="categoria">${producto[0].category}</h5>
+        //                      <p class="card-tex" id="descripcion">${producto[0].description}</p>`;
+
+        
+
+         
+         
+         
+         window.addEventListener("load", function (event){
+            if (getProducto("producto") !=null){
                 
+                producto.forEach(r => {
 
-    let title = [0];
-    let rate = [0];
-    let elemento = JSON.stringify(producto, rate.text);
-    console.log (elemento);
 
+                    let row =   `
+                                <div class="card border-info mb-3" style="width:auto;">
+                                <img src="${r.image}" class="card-img-top" id="foto" alt="fotoProducto">
+                                <div class="card-body"></div>
+                                <h3 class="card-title" id="titulo">${r.title}</h3>
+                                <h5 class="cardcategoria" id="categoria">${r.category}</h5>
+                                <p class="card-tex" id="descripcion">${r.description}</p>
+                                <a href="#" class="btn btn-primary" id="btnMasInfo"> Más Info </a>
+                            </div>
+                                </div>`;
+                
+                card[0].insertAdjacentHTML("beforeend", row);
+
+
+                });
+
+            }
+
+        });
